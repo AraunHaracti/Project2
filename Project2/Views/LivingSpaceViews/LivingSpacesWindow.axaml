@@ -1,0 +1,58 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Project2.ViewModels"
+        xmlns:local="clr-namespace:Project2"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Project2.Views.LivingSpacesWindow"
+        x:DataType="vm:LivingSpacesWindowViewModel"
+        Title="Жилые пространства">
+        
+        <Design.DataContext>
+                <vm:LivingSpacesWindowViewModel/>
+        </Design.DataContext>
+        
+        <Window.Styles>
+                <Style Selector="TextBox.Search">
+                        <Setter Property="Width" Value="300"/>
+                        <Setter Property="Margin" Value="5"/>
+                </Style>
+                <Style Selector="Button.Action">
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+        </Window.Styles>
+  
+        <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBox x:Name="SearchTextBox" Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
+                        <Button x:Name="AddAndEditResidentialComplex" Content="ДобавитьИзменить жилой комплекс" Command="{Binding }" Classes="Action"/>
+                        <Button x:Name="AddAndEditBuilding" Content="ДобавитьИзменить здание" Command="{Binding }" Classes="Action"/>
+                        <Button x:Name="AddAndEditApartment" Content="ДобавитьИзменить помещение" Command="{Binding }" Classes="Action"/>
+                        <Button x:Name="Exit" Content="Вернуться" Click="Exit_OnClick" Classes="Action"/>
+                </StackPanel>
+        
+                <DataGrid x:Name="LivingSpaceDataGrid" 
+                          x:CompileBindings="False" 
+                          AutoGenerateColumns="False" 
+                          IsReadOnly="True" 
+                          ItemsSource="{Binding LivingSpacesOnDataGrid}"
+                          Height="400">
+                        <DataGrid.Columns>
+                                <DataGridTextColumn Header="Жилой комплекс" Binding="{Binding ResidentialComplex}"/>
+                                <DataGridTextColumn Header="Здание" Binding="{Binding Building}"/>
+                                <DataGridTextColumn Header="Помещение" Binding="{Binding Apartment}"/>
+                                <DataGridTextColumn Header="Состояние" Binding="{Binding State}"/>
+                        </DataGrid.Columns>
+                </DataGrid>        
+                
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="15">
+                        <Button x:Name="First" Content="&lt;&lt;" Command="{Binding TakeItems}" CommandParameter="{x:Static local:TakeItemsEnum.FirstItems}" Margin="5"/>
+                        <Button x:Name="Previous" Content="&lt;" Command="{Binding TakeItems}" CommandParameter="{x:Static local:TakeItemsEnum.PreviousItems}" Margin="5"/>
+                        <Button x:Name="Next" Content="&gt;" Command="{Binding TakeItems}" CommandParameter="{x:Static local:TakeItemsEnum.NextItems}" Margin="5"/>
+                        <Button x:Name="Last" Content="&gt;&gt;" Command="{Binding TakeItems}" CommandParameter="{x:Static local:TakeItemsEnum.LastItems}" Margin="5"/>
+                </StackPanel>
+        </StackPanel>
+</Window>
