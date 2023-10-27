@@ -26,4 +26,12 @@
         <PackageReference Include="MySql.Data" Version="8.2.0" />
         <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.10" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Compile Update="Views\LivingSpaceViews\LivingSpacesWindow.axaml.cs">
+        <DependentUpon>LivingSpacesWindow.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

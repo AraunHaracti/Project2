@@ -5,5 +5,22 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Project2.Views.LivingSpaceViews.ResidentialComplexViews.ChangeResidentialComplex"
         Title="ChangeResidentialComplex">
-  Welcome to Avalonia!
+  <StackPanel Orientation="Vertical" Margin="10">
+    
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Text="Имя" Width="120" Margin="10"/>
+      <TextBox Text="{Binding Name}" Width="200" Margin="10"/>
+    </StackPanel>
+    
+    <StackPanel Orientation="Horizontal">
+      <TextBlock Text="Логин" Width="120" Margin="10"/>
+      <!-- <ComboBox Text="{Binding Login}" Width="200" Margin="10"/> -->
+    </StackPanel>
+    
+    <StackPanel Orientation="Horizontal">
+      <Button x:Name="Change" Content="Применить" Click="Change_OnClick" Width="160" Margin="10" HorizontalContentAlignment="Center"/>
+      <Button x:Name="Cancel" Content="Отмена" Click="Cancel_OnClick" Width="160" Margin="10" HorizontalContentAlignment="Center"/>
+    </StackPanel>
+    
+  </StackPanel>
 </Window>

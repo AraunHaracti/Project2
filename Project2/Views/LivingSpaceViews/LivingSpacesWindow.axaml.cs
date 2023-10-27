@@ -2,9 +2,9 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Project2.ViewModels;
+using Project2.ViewModels.LivingSpaceViewModels;
 
-namespace Project2.Views;
+namespace Project2.Views.LivingSpaceViews;
 
 public partial class LivingSpacesWindow : Window
 {

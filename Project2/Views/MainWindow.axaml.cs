@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 
 namespace Project2.Views;
 
@@ -10,11 +11,17 @@ public partial class MainWindow : Window
         
         Database.ConnectionStringBuilder = new()
         {
-            Server = "10.10.1.24",
+            Server = "localhost",
             Port = 3306,
-            Database = "pro1_12",
-            UserID = "user_01",
-            Password = "user01pro"
+            Database = "ResCom",
+            UserID = "root",
+            Password = "password"
         };
+    }
+
+    private void LivingSpaceButton_OnClick(object? sender, RoutedEventArgs e)
+    {
+        var livingSpacesWindow = new LivingSpaceViews.LivingSpacesWindow();
+        livingSpacesWindow.ShowDialog(this);
     }
 }

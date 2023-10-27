@@ -2,5 +2,8 @@
 
 public enum TakeItemsEnum
 {
-    
+    FirstItems,
+    PreviousItems,
+    NextItems,
+    LastItems
 }

@@ -2,10 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:vm="using:Project2.ViewModels"
+        xmlns:vm="using:Project2.ViewModels.LivingSpaceViewModels"
         xmlns:local="clr-namespace:Project2"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Project2.Views.LivingSpacesWindow"
+        x:Class="Project2.Views.LivingSpaceViews.LivingSpacesWindow"
         x:DataType="vm:LivingSpacesWindowViewModel"
         Title="Жилые пространства">
         
@@ -28,17 +28,17 @@
         <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBox x:Name="SearchTextBox" Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
-                        <Button x:Name="AddAndEditResidentialComplex" Content="ДобавитьИзменить жилой комплекс" Command="{Binding }" Classes="Action"/>
-                        <Button x:Name="AddAndEditBuilding" Content="ДобавитьИзменить здание" Command="{Binding }" Classes="Action"/>
-                        <Button x:Name="AddAndEditApartment" Content="ДобавитьИзменить помещение" Command="{Binding }" Classes="Action"/>
+                        <Button x:Name="ResidentialComplexButton" Content="Жилые комплексы" Command="{Binding ResidentialComplexButton}" Classes="Action"/>
+                        <Button x:Name="BuildingButton" Content="Здания" Command="{Binding BuildingButton}" Classes="Action"/>
+                        <Button x:Name="ApartmentButton" Content="Помещения" Command="{Binding ApartmentButton}" Classes="Action"/>
                         <Button x:Name="Exit" Content="Вернуться" Click="Exit_OnClick" Classes="Action"/>
                 </StackPanel>
         
-                <DataGrid x:Name="LivingSpaceDataGrid" 
+                <DataGrid x:Name="ItemDataGrid" 
                           x:CompileBindings="False" 
                           AutoGenerateColumns="False" 
                           IsReadOnly="True" 
-                          ItemsSource="{Binding LivingSpacesOnDataGrid}"
+                          ItemsSource="{Binding ItemsOnDataGrid}"
                           Height="400">
                         <DataGrid.Columns>
                                 <DataGridTextColumn Header="Жилой комплекс" Binding="{Binding ResidentialComplex}"/>

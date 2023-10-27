@@ -6,5 +6,7 @@ public partial class ResidentialComplex
 
     public int? StateId { get; set; }
 
+    public string? StateName { get; set; }
+    
     public string? Name { get; set; }
 }
