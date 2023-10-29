@@ -28,8 +28,8 @@
         <StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="5">
                         <TextBox x:Name="SearchTextBox" Text="{Binding SearchQuery, Mode=TwoWay}" Classes="Search"/>
-                        <Button x:Name="AddResidentialComplex" Content="Добавить жилой комплекс" Command="{Binding }" Classes="Action"/>
-                        <Button x:Name="EditResidentialComplex" Content="Изменить жилой комплекс" Command="{Binding }" Classes="Action"/>
+                        <Button x:Name="AddResidentialComplex" Content="Добавить жилой комплекс" Command="{Binding AddItem}" Classes="Action"/>
+                        <Button x:Name="EditResidentialComplex" Content="Изменить жилой комплекс" Command="{Binding EditItem}" Classes="Action"/>
                         <Button x:Name="Exit" Content="Вернуться" Click="Exit_OnClick" Classes="Action"/>
                 </StackPanel>
         
@@ -37,6 +37,7 @@
                           x:CompileBindings="False" 
                           AutoGenerateColumns="False" 
                           IsReadOnly="True" 
+                          SelectedItem="{Binding CurrentItem}"
                           ItemsSource="{Binding ItemsOnDataGrid}"
                           Height="400">
                         <DataGrid.Columns>

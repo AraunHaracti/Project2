@@ -11,11 +11,11 @@ public partial class MainWindow : Window
         
         Database.ConnectionStringBuilder = new()
         {
-            Server = "localhost",
+            Server = "10.10.1.24",
             Port = 3306,
-            Database = "ResCom",
-            UserID = "root",
-            Password = "password"
+            Database = "pro1_12",
+            UserID = "user_01",
+            Password = "user01pro"
         };
     }
 

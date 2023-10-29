@@ -7,6 +7,7 @@ using System.Reflection;
 using Avalonia.Controls;
 using MySql.Data.MySqlClient;
 using Project2.Models;
+using Project2.Views.LivingSpaceViews.ResidentialComplexViews;
 using ReactiveUI;
 
 namespace Project2.ViewModels.LivingSpaceViewModels.ResidentialComplexViewModels;
@@ -140,19 +141,19 @@ public class ResidentialComplexWindowViewModel : ViewModelBase
         }
     }
     
-    // public void AddItem()
-    // {
-    //     var itemAddWindowView = new ChangeItemView(UpdateItems);
-    //     itemAddWindowView.ShowDialog(_parentWindow);
-    //     UpdateItems();
-    // }
-    //
-    // public void EditItem()
-    // {
-    //     if (CurrentItem == null) return;
-    //     var itemEditWindowView = new ChangeItemView(UpdateItems, CurrentItem);
-    //     itemEditWindowView.ShowDialog(_parentWindow);
-    // }
+    public void AddItem()
+    {
+        var itemAddWindowView = new ChangeResidentialComplex(UpdateItems);
+        itemAddWindowView.ShowDialog(_parentWindow);
+        UpdateItems();
+    }
+    
+    public void EditItem()
+    {
+        var itemAddWindowView = new ChangeResidentialComplex(UpdateItems, CurrentItem);
+        itemAddWindowView.ShowDialog(_parentWindow);
+        UpdateItems();
+    }
 
     public void TakeItems(TakeItemsEnum takeItems)
     {

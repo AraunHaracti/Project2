@@ -2,19 +2,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:models="clr-namespace:Project2.Models"
+        CanResize="False"
+        SizeToContent="WidthAndHeight"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Project2.Views.LivingSpaceViews.ResidentialComplexViews.ChangeResidentialComplex"
+        x:DataType="models:ResidentialComplex"
         Title="ChangeResidentialComplex">
   <StackPanel Orientation="Vertical" Margin="10">
     
     <StackPanel Orientation="Horizontal">
-      <TextBlock Text="Имя" Width="120" Margin="10"/>
+      <TextBlock Text="Название" Width="120" Margin="10"/>
       <TextBox Text="{Binding Name}" Width="200" Margin="10"/>
     </StackPanel>
     
     <StackPanel Orientation="Horizontal">
-      <TextBlock Text="Логин" Width="120" Margin="10"/>
-      <!-- <ComboBox Text="{Binding Login}" Width="200" Margin="10"/> -->
+      <TextBlock Text="Состояние" Width="120" Margin="10"/>
+      <ComboBox x:Name="ComboBoxItems" SelectionChanged="ComboBoxItems_OnSelectionChanged" Width="200" Margin="10"/>
     </StackPanel>
     
     <StackPanel Orientation="Horizontal">
